@@ -15,7 +15,7 @@ export const cvData: CVData = {
 
     // Nota: por ahora usamos la imagen del CV como placeholder.
     // Más adelante podemos sustituir por una foto recortada/optimizada.
-    profileImageUrl: '/img/Dove.png',
+    profileImageUrl: 'img/Dove.png',
 
     actions: [
       {
