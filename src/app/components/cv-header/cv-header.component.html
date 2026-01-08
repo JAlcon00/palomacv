@@ -1,0 +1,78 @@
+<header class="w-full">
+  <div class="mx-auto w-full max-w-5xl px-4 pt-8 sm:px-6 sm:pt-10">
+    <div class="grid grid-cols-1 items-center gap-8 md:grid-cols-[120px_1fr]">
+      <div class="flex justify-center md:justify-start">
+        <div
+          class="h-24 w-24 overflow-hidden rounded-full bg-gray-100 shadow-lg transition duration-300 hover:-translate-y-0.5 hover:shadow-xl sm:h-28 sm:w-28"
+        >
+          <ng-container *ngIf="showImage(); else fallback">
+            <img
+              class="h-full w-full object-cover"
+              [src]="contact().profileImageUrl"
+              [alt]="contact().fullName"
+              (error)="onImageError()"
+            />
+          </ng-container>
+          <ng-template #fallback>
+            <div class="flex h-full w-full items-center justify-center">
+              <span class="select-none text-lg font-semibold tracking-[0.35em] text-gray-700 sm:text-xl">
+                {{ initials() }}
+              </span>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="text-center md:text-left">
+        <div class="flex flex-col items-center gap-4 md:flex-row md:items-start md:justify-between">
+          <div>
+            <h1 class="text-3xl font-light tracking-[0.18em] text-gray-900 sm:text-4xl sm:tracking-[0.28em] md:text-5xl md:tracking-[0.35em]">
+              {{ contact().fullName }}
+            </h1>
+            <p class="mt-2 text-xs font-medium tracking-[0.22em] text-gray-700 sm:text-sm sm:tracking-[0.25em]">
+              {{ contact().headline }}
+            </p>
+          </div>
+
+          <a
+            class="group inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-medium tracking-widest text-gray-700 transition duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:text-gray-900 hover:shadow-sm"
+            [href]="contact().cvDownloadUrl"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Descargar CV"
+          >
+            <lucide-icon
+              class="h-4 w-4 text-gray-500 transition-colors group-hover:text-gray-900"
+              name="download"
+            ></lucide-icon>
+            <span>Descargar CV</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 h-px w-full bg-gray-200"></div>
+
+    <div
+      class="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-gray-600 md:justify-start"
+    >
+      <a
+        *ngFor="let item of contactItems()"
+        class="group inline-flex items-center gap-2 rounded-full border border-transparent px-3 py-1 transition duration-300 hover:-translate-y-0.5 hover:border-gray-200 hover:bg-white hover:text-gray-900 hover:shadow-sm"
+        [href]="item.href"
+        [attr.aria-label]="item.ariaLabel"
+        [attr.target]="item.targetBlank ? '_blank' : null"
+        [attr.rel]="item.targetBlank ? 'noreferrer' : null"
+      >
+        <lucide-icon
+          class="h-4 w-4 text-gray-500 transition-colors group-hover:text-gray-900"
+          [name]="item.icon"
+        ></lucide-icon>
+        <span class="tracking-wide">{{ item.label }}</span>
+      </a>
+    </div>
+
+    <div class="mt-4 h-px w-full bg-gray-200"></div>
+  </div>
+</header>
+

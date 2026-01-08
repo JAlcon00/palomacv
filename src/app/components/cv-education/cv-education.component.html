@@ -1,0 +1,41 @@
+<section class="w-full animate-fade-in-up motion-reduce:animate-none">
+  <!-- Section Header -->
+  <div class="mb-6 flex items-center gap-3">
+    <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-slate-700 to-slate-900 shadow-md">
+      <lucide-icon class="h-5 w-5 text-white" name="graduation-cap"></lucide-icon>
+    </div>
+    <h2 class="text-xl font-semibold tracking-wide text-gray-900">Educación</h2>
+  </div>
+
+  <!-- Content card -->
+  <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-100">
+    <div class="space-y-4">
+      <article
+        *ngFor="let entry of education(); let last = last"
+        class="rounded-xl border border-gray-100 bg-gray-50/50 p-5 transition duration-300 ease-out hover:scale-[1.01] hover:border-gray-200 hover:bg-white hover:shadow-md"
+      >
+        <div class="flex flex-wrap items-start justify-between gap-2">
+          <h3 class="font-semibold text-gray-900">{{ entry.title }}</h3>
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-700">
+            <lucide-icon class="h-3 w-3" name="calendar"></lucide-icon>
+            {{ entry.period }}
+          </span>
+        </div>
+
+        <p class="mt-1.5 text-sm text-gray-600">
+          {{ entry.institution }}<span *ngIf="entry.campus">, {{ entry.campus }}</span>
+        </p>
+
+        <ul *ngIf="entry.details.length" class="mt-4 space-y-2">
+          <li *ngFor="let detail of entry.details" class="flex gap-2 text-sm leading-relaxed text-gray-600">
+            <div class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50">
+              <lucide-icon class="h-3 w-3 text-emerald-600" name="check"></lucide-icon>
+            </div>
+            <span>{{ detail }}</span>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+

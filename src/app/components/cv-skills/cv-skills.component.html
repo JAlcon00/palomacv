@@ -1,0 +1,35 @@
+<section class="mx-auto w-full max-w-5xl px-4 pt-4 pb-6 sm:px-6 sm:pt-5 sm:pb-8">
+  <div class="animate-fade-in-up motion-reduce:animate-none">
+    <!-- Section Header -->
+    <div class="mb-6 flex items-center justify-center gap-3">
+      <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-slate-700 to-slate-900 shadow-md">
+        <lucide-icon class="h-5 w-5 text-white" name="sparkles"></lucide-icon>
+      </div>
+      <h2 class="text-2xl font-semibold tracking-wide text-gray-900">Habilidades</h2>
+    </div>
+
+    <!-- Skills grid -->
+    <div class="mx-auto max-w-4xl rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-100 transition duration-300 ease-out hover:scale-[1.01] hover:shadow-md sm:p-8">
+      <div class="grid gap-x-8 gap-y-3 sm:grid-cols-2">
+        <ul class="space-y-3">
+          <li *ngFor="let item of skills().leftColumn" class="flex items-start gap-3 text-sm text-gray-600">
+            <div class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50">
+              <lucide-icon class="h-3 w-3 text-emerald-600" name="check"></lucide-icon>
+            </div>
+            <span>{{ item }}</span>
+          </li>
+        </ul>
+
+        <ul class="space-y-3">
+          <li *ngFor="let item of skills().rightColumn" class="flex items-start gap-3 text-sm text-gray-600">
+            <div class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50">
+              <lucide-icon class="h-3 w-3 text-emerald-600" name="check"></lucide-icon>
+            </div>
+            <span>{{ item }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+

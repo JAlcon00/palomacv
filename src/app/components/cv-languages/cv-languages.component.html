@@ -1,0 +1,23 @@
+<section class="w-full animate-fade-in-up motion-reduce:animate-none pt-4">
+  <!-- Section Header -->
+  <div class="mb-6 flex items-center gap-3">
+    <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-slate-700 to-slate-900 shadow-md">
+      <lucide-icon class="h-5 w-5 text-white" name="globe"></lucide-icon>
+    </div>
+    <h2 class="text-xl font-semibold tracking-wide text-gray-900">Idiomas</h2>
+  </div>
+
+  <!-- Content card -->
+  <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-100">
+    <div class="flex flex-col gap-3">
+      <div
+        *ngFor="let item of languages()"
+        class="inline-flex w-fit items-center gap-3 rounded-xl border border-gray-100 bg-gray-50/50 px-4 py-3 text-sm font-medium text-gray-700 transition duration-300 ease-out hover:scale-[1.02] hover:border-gray-200 hover:bg-white hover:shadow-md"
+      >
+        <span class="flex h-4 w-4 items-center justify-center rounded-full border-2 border-slate-300"></span>
+        <span>{{ item.language }}</span>
+        <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs text-slate-600">{{ item.level }}</span>
+      </div>
+    </div>
+  </div>
+</section>
